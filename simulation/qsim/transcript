@@ -1,0 +1,13 @@
+# do Processador.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:38:05 on Jun 10,2023
+# vlog -work work Processador.vo 
+# init_dbinfo() DATABASE ERROR: (sqlite3_open D:/Backup/Document/0-Obsidian/0-UNIFESP/5° Semestre/Lab AOC/Processador/simulation/qsim/work/_lib.qdb): unable to open database file
+# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
+# ** Fatal: (vlog-9) Problem while writing internal20180930A file "D:/Backup/Document/0-Obsidian/0-UNIFESP/5° Semestre/Lab AOC/Processador/simulation/qsim/work/_temp/vloggz7eht".
+# Processador.vo(32): Verilog Compiler exiting
+# End time: 22:38:05 on Jun 10,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: c:/intelfpga_lite/20.1/modelsim_ase/win32aloem/vlog failed.
+# Executing ONERROR command at macro ./Processador.do line 3

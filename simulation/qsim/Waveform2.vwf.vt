@@ -1,0 +1,558 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/10/2023 22:38:02"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          Processador
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module Processador_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [3:0] control;
+reg [31:0] in1;
+reg [31:0] in2;
+reg [31:0] in3;
+// wires                                               
+wire [31:0] out_32;
+wire [63:0] out_64;
+wire sign_hilo;
+
+// assign statements (if any)                          
+Processador i1 (
+// port map - connection between master ports and signals/registers   
+	.control(control),
+	.in1(in1),
+	.in2(in2),
+	.in3(in3),
+	.out_32(out_32),
+	.out_64(out_64),
+	.sign_hilo(sign_hilo)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// control[ 3 ]
+initial
+begin
+	control[3] = 1'b0;
+end 
+// control[ 2 ]
+initial
+begin
+	control[2] = 1'b0;
+end 
+// control[ 1 ]
+initial
+begin
+	control[1] = 1'b0;
+end 
+// control[ 0 ]
+initial
+begin
+	control[0] = 1'b1;
+end 
+// in1[ 31 ]
+initial
+begin
+	in1[31] = 1'b0;
+end 
+// in1[ 30 ]
+initial
+begin
+	in1[30] = 1'b0;
+end 
+// in1[ 29 ]
+initial
+begin
+	in1[29] = 1'b0;
+end 
+// in1[ 28 ]
+initial
+begin
+	in1[28] = 1'b0;
+end 
+// in1[ 27 ]
+initial
+begin
+	in1[27] = 1'b0;
+end 
+// in1[ 26 ]
+initial
+begin
+	in1[26] = 1'b0;
+end 
+// in1[ 25 ]
+initial
+begin
+	in1[25] = 1'b0;
+end 
+// in1[ 24 ]
+initial
+begin
+	in1[24] = 1'b0;
+end 
+// in1[ 23 ]
+initial
+begin
+	in1[23] = 1'b0;
+end 
+// in1[ 22 ]
+initial
+begin
+	in1[22] = 1'b0;
+end 
+// in1[ 21 ]
+initial
+begin
+	in1[21] = 1'b0;
+end 
+// in1[ 20 ]
+initial
+begin
+	in1[20] = 1'b0;
+end 
+// in1[ 19 ]
+initial
+begin
+	in1[19] = 1'b0;
+end 
+// in1[ 18 ]
+initial
+begin
+	in1[18] = 1'b0;
+end 
+// in1[ 17 ]
+initial
+begin
+	in1[17] = 1'b0;
+end 
+// in1[ 16 ]
+initial
+begin
+	in1[16] = 1'b0;
+end 
+// in1[ 15 ]
+initial
+begin
+	in1[15] = 1'b0;
+end 
+// in1[ 14 ]
+initial
+begin
+	in1[14] = 1'b0;
+end 
+// in1[ 13 ]
+initial
+begin
+	in1[13] = 1'b1;
+end 
+// in1[ 12 ]
+initial
+begin
+	in1[12] = 1'b0;
+end 
+// in1[ 11 ]
+initial
+begin
+	in1[11] = 1'b0;
+end 
+// in1[ 10 ]
+initial
+begin
+	in1[10] = 1'b0;
+end 
+// in1[ 9 ]
+initial
+begin
+	in1[9] = 1'b0;
+end 
+// in1[ 8 ]
+initial
+begin
+	in1[8] = 1'b0;
+end 
+// in1[ 7 ]
+initial
+begin
+	in1[7] = 1'b0;
+end 
+// in1[ 6 ]
+initial
+begin
+	in1[6] = 1'b0;
+end 
+// in1[ 5 ]
+initial
+begin
+	in1[5] = 1'b0;
+end 
+// in1[ 4 ]
+initial
+begin
+	in1[4] = 1'b0;
+end 
+// in1[ 3 ]
+initial
+begin
+	in1[3] = 1'b0;
+end 
+// in1[ 2 ]
+initial
+begin
+	in1[2] = 1'b0;
+end 
+// in1[ 1 ]
+initial
+begin
+	in1[1] = 1'b0;
+end 
+// in1[ 0 ]
+initial
+begin
+	in1[0] = 1'b0;
+end 
+// in2[ 31 ]
+initial
+begin
+	in2[31] = 1'b0;
+end 
+// in2[ 30 ]
+initial
+begin
+	in2[30] = 1'b0;
+end 
+// in2[ 29 ]
+initial
+begin
+	in2[29] = 1'b0;
+end 
+// in2[ 28 ]
+initial
+begin
+	in2[28] = 1'b0;
+end 
+// in2[ 27 ]
+initial
+begin
+	in2[27] = 1'b0;
+end 
+// in2[ 26 ]
+initial
+begin
+	in2[26] = 1'b0;
+end 
+// in2[ 25 ]
+initial
+begin
+	in2[25] = 1'b0;
+end 
+// in2[ 24 ]
+initial
+begin
+	in2[24] = 1'b0;
+end 
+// in2[ 23 ]
+initial
+begin
+	in2[23] = 1'b0;
+end 
+// in2[ 22 ]
+initial
+begin
+	in2[22] = 1'b0;
+end 
+// in2[ 21 ]
+initial
+begin
+	in2[21] = 1'b0;
+end 
+// in2[ 20 ]
+initial
+begin
+	in2[20] = 1'b0;
+end 
+// in2[ 19 ]
+initial
+begin
+	in2[19] = 1'b0;
+end 
+// in2[ 18 ]
+initial
+begin
+	in2[18] = 1'b0;
+end 
+// in2[ 17 ]
+initial
+begin
+	in2[17] = 1'b0;
+end 
+// in2[ 16 ]
+initial
+begin
+	in2[16] = 1'b0;
+end 
+// in2[ 15 ]
+initial
+begin
+	in2[15] = 1'b0;
+end 
+// in2[ 14 ]
+initial
+begin
+	in2[14] = 1'b1;
+end 
+// in2[ 13 ]
+initial
+begin
+	in2[13] = 1'b0;
+end 
+// in2[ 12 ]
+initial
+begin
+	in2[12] = 1'b0;
+end 
+// in2[ 11 ]
+initial
+begin
+	in2[11] = 1'b0;
+end 
+// in2[ 10 ]
+initial
+begin
+	in2[10] = 1'b0;
+end 
+// in2[ 9 ]
+initial
+begin
+	in2[9] = 1'b0;
+end 
+// in2[ 8 ]
+initial
+begin
+	in2[8] = 1'b0;
+end 
+// in2[ 7 ]
+initial
+begin
+	in2[7] = 1'b0;
+end 
+// in2[ 6 ]
+initial
+begin
+	in2[6] = 1'b0;
+end 
+// in2[ 5 ]
+initial
+begin
+	in2[5] = 1'b0;
+end 
+// in2[ 4 ]
+initial
+begin
+	in2[4] = 1'b0;
+end 
+// in2[ 3 ]
+initial
+begin
+	in2[3] = 1'b0;
+end 
+// in2[ 2 ]
+initial
+begin
+	in2[2] = 1'b0;
+end 
+// in2[ 1 ]
+initial
+begin
+	in2[1] = 1'b0;
+end 
+// in2[ 0 ]
+initial
+begin
+	in2[0] = 1'b0;
+end 
+// in3[ 31 ]
+initial
+begin
+	in3[31] = 1'b0;
+end 
+// in3[ 30 ]
+initial
+begin
+	in3[30] = 1'b0;
+end 
+// in3[ 29 ]
+initial
+begin
+	in3[29] = 1'b0;
+end 
+// in3[ 28 ]
+initial
+begin
+	in3[28] = 1'b0;
+end 
+// in3[ 27 ]
+initial
+begin
+	in3[27] = 1'b0;
+end 
+// in3[ 26 ]
+initial
+begin
+	in3[26] = 1'b0;
+end 
+// in3[ 25 ]
+initial
+begin
+	in3[25] = 1'b0;
+end 
+// in3[ 24 ]
+initial
+begin
+	in3[24] = 1'b0;
+end 
+// in3[ 23 ]
+initial
+begin
+	in3[23] = 1'b0;
+end 
+// in3[ 22 ]
+initial
+begin
+	in3[22] = 1'b0;
+end 
+// in3[ 21 ]
+initial
+begin
+	in3[21] = 1'b0;
+end 
+// in3[ 20 ]
+initial
+begin
+	in3[20] = 1'b0;
+end 
+// in3[ 19 ]
+initial
+begin
+	in3[19] = 1'b0;
+end 
+// in3[ 18 ]
+initial
+begin
+	in3[18] = 1'b0;
+end 
+// in3[ 17 ]
+initial
+begin
+	in3[17] = 1'b0;
+end 
+// in3[ 16 ]
+initial
+begin
+	in3[16] = 1'b0;
+end 
+// in3[ 15 ]
+initial
+begin
+	in3[15] = 1'b0;
+end 
+// in3[ 14 ]
+initial
+begin
+	in3[14] = 1'b0;
+end 
+// in3[ 13 ]
+initial
+begin
+	in3[13] = 1'b0;
+end 
+// in3[ 12 ]
+initial
+begin
+	in3[12] = 1'b0;
+end 
+// in3[ 11 ]
+initial
+begin
+	in3[11] = 1'b0;
+end 
+// in3[ 10 ]
+initial
+begin
+	in3[10] = 1'b0;
+end 
+// in3[ 9 ]
+initial
+begin
+	in3[9] = 1'b0;
+end 
+// in3[ 8 ]
+initial
+begin
+	in3[8] = 1'b0;
+end 
+// in3[ 7 ]
+initial
+begin
+	in3[7] = 1'b0;
+end 
+// in3[ 6 ]
+initial
+begin
+	in3[6] = 1'b0;
+end 
+// in3[ 5 ]
+initial
+begin
+	in3[5] = 1'b0;
+end 
+// in3[ 4 ]
+initial
+begin
+	in3[4] = 1'b0;
+end 
+// in3[ 3 ]
+initial
+begin
+	in3[3] = 1'b0;
+end 
+// in3[ 2 ]
+initial
+begin
+	in3[2] = 1'b0;
+end 
+// in3[ 1 ]
+initial
+begin
+	in3[1] = 1'b0;
+end 
+// in3[ 0 ]
+initial
+begin
+	in3[0] = 1'b0;
+end 
+endmodule
+

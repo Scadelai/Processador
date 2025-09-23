@@ -1,0 +1,125 @@
+# Quartus II generated files
+*.rpt
+*.summary
+*.pin
+*.jdi
+*.sof
+*.pof
+*.rbf
+*.done
+*.qws
+*.bak
+*.cmp
+*.qpf~
+*.qsf~
+
+# Quartus II database and project files
+db/
+incremental_db/
+*.qdb
+*.qtl
+
+# Quartus II compilation outputs
+output_files/
+*.map
+*.fit
+*.asm
+*.sta
+*.eda
+*.ddb
+
+# Quartus II simulation files
+simulation/
+*.vwf
+*.msim_transcript
+*.wlf
+*.vstf
+
+# Quartus II timing analysis
+*.tan.rpt
+*.tan.summary
+
+# ModelSim/QuestaSim files
+work/
+transcript
+vsim.wlf
+*.mpf
+*.mti
+
+# TimeQuest files
+*.tao
+*.tcl~
+
+# SignalTap II files
+*.stp
+
+# Quartus II IP files (optional - uncomment if you want to ignore)
+# *.qip
+# *.bsf
+# *.cmp
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Quartus II assignments backup
+*.qsf.bak
+*.qpf.bak
+
+# SOPC Builder files
+*.sopcinfo
+*.cmp
+
+# Platform Designer files
+*.qsys
+*.sopcinfo
+
+# HPS files (if using HPS)
+hps_isw_handoff/
+*.hex
+
+# Generated constraint files
+*.sdc.bak
+
+# Project-specific generated files
+*.restore.rpt
+qar_info.json
+
+# Waveform files (keeping source .vwf files, ignoring generated ones)
+*.vwf.vt
+Waveform*.vwf
+
+# Additional Quartus generated files
+*.cnf.cdb
+*.cnf.hdb
+*.asm_labs.ddb
+*.asm.qmsg
+*.asm.rdb
+*.cbx.xml
+prev_cmp_*.qmsg
+*_partition_pins.json
+
+# Test and documentation files (optional - uncomment if you want to ignore)
+# test_memoria.txt
+# documentacao_teste_memoria.md
+# instrucoes_processador.md
+# instrucoes_processador.txt

@@ -1,0 +1,321 @@
+# DOCUMENTAÇÃO DO CONJUNTO DE INSTRUÇÕES
+## PROCESSADOR MIPS CUSTOMIZADO
+
+## FORMATO DAS INSTRUÇÕES
+
+- Todas as instruções têm 32 bits
+- Formato geral: `[31:26] OPCODE | [25:20] RD | [19:14] RT | [13:8] RS | [7:0] IMEDIATO/ENDEREÇO`
+
+## CAMPOS DA INSTRUÇÃO
+
+- **OPCODE [31:26]**: Código da operação (6 bits)
+- **RD [25:20]**: Registrador destino (6 bits)
+- **RT [19:14]**: Registrador fonte 2 (6 bits)
+- **RS [13:8]**: Registrador fonte 1 (6 bits)
+- **IMEDIATO [13:0]**: Valor imediato ou endereço (14 bits)
+- **ENDEREÇO [5:0]**: Endereço de salto (6 bits)
+
+## INSTRUÇÕES ARITMÉTICAS E LÓGICAS
+
+### ADD (000000)
+- **Formato**: `ADD RD, RS, RT`
+- **Operação**: `RD = RS + RT`
+- **Exemplo**: `00000000001000100001100000000000`
+  - RS=1, RT=2, RD=6 → R6 = R1 + R2
+
+### SUB (000001)
+- **Formato**: `SUB RD, RS, RT`
+- **Operação**: `RD = RS - RT`
+- **Exemplo**: `00000100001000100001100000000000`
+  - RS=1, RT=2, RD=6 → R6 = R1 - R2
+
+### MULT (000010)
+- **Formato**: `MULT RS, RT`
+- **Operação**: `HI:LO = RS * RT` (resultado de 64 bits)
+- **Exemplo**: `00001000001000100000000000000000`
+  - RS=1, RT=2 → HI:LO = R1 * R2
+
+### DIV (000011)
+- **Formato**: `DIV RS, RT`
+- **Operação**: `LO = RS / RT, HI = RS % RT`
+- **Exemplo**: `00001100001000100000000000000000`
+  - RS=1, RT=2 → LO = R1 / R2, HI = R1 % R2
+
+### AND (000100)
+- **Formato**: `AND RD, RS, RT`
+- **Operação**: `RD = RS & RT`
+- **Exemplo**: `00010000001000100001100000000000`
+  - RS=1, RT=2, RD=6 → R6 = R1 & R2
+
+### OR (000101)
+- **Formato**: `OR RD, RS, RT`
+- **Operação**: `RD = RS | RT`
+- **Exemplo**: `00010100001000100001100000000000`
+  - RS=1, RT=2, RD=6 → R6 = R1 | R2
+
+### SLL (000110)
+- **Formato**: `SLL RD, RS, SHAMT`
+- **Operação**: `RD = RS << SHAMT`
+- **Exemplo**: `00011000001000000001100000000100`
+  - RS=1, RD=6, SHAMT=4 → R6 = R1 << 4
+
+### SRL (000111)
+- **Formato**: `SRL RD, RS, SHAMT`
+- **Operação**: `RD = RS >> SHAMT`
+- **Exemplo**: `00011100001000000001100000000100`
+  - RS=1, RD=6, SHAMT=4 → R6 = R1 >> 4
+
+### SLT (001000)
+- **Formato**: `SLT RD, RS, RT`
+- **Operação**: `RD = (RS < RT) ? 1 : 0`
+- **Exemplo**: `00100000001000100001100000000000`
+  - RS=1, RT=2, RD=6 → R6 = (R1 < R2) ? 1 : 0
+
+## INSTRUÇÕES DE MOVIMENTAÇÃO
+
+### MFHI (001001)
+- **Formato**: `MFHI RD`
+- **Operação**: `RD = HI`
+- **Exemplo**: `00100100000000000001100000000000`
+  - RD=6 → R6 = HI
+
+### MFLO (001010)
+- **Formato**: `MFLO RD`
+- **Operação**: `RD = LO`
+- **Exemplo**: `00101000000000000001100000000000`
+  - RD=6 → R6 = LO
+
+### MOVE (001011)
+- **Formato**: `MOVE RD, RS`
+- **Operação**: `RD = RS`
+- **Exemplo**: `00101100001000000001100000000000`
+  - RS=1, RD=6 → R6 = R1
+
+## INSTRUÇÕES DE SALTO
+
+### JR (001100)
+- **Formato**: `JR RS`
+- **Operação**: `PC = RS`
+- **Exemplo**: `00110000001000000000000000000000`
+  - RS=1 → PC = R1
+
+### JALR (001101)
+- **Formato**: `JALR RS`
+- **Operação**: `R31 = PC+1; PC = RS`
+- **Exemplo**: `00110100001000000000000000000000`
+  - RS=1 → R31 = PC+1, PC = R1
+
+### J (011100)
+- **Formato**: `J ENDEREÇO`
+- **Operação**: `PC = ENDEREÇO`
+- **Exemplo**: `01110000000000000000000000001000`
+  - ENDEREÇO=8 → PC = 8
+
+### JAL (011101)
+- **Formato**: `JAL ENDEREÇO`
+- **Operação**: `R31 = PC+1; PC = ENDEREÇO`
+- **Exemplo**: `01110100000000000000000000001000`
+  - ENDEREÇO=8 → R31 = PC+1, PC = 8
+
+## INSTRUÇÕES IMEDIATAS
+
+### LA (001110)
+- **Formato**: `LA RD, ENDEREÇO`
+- **Operação**: `RD = ENDEREÇO`
+- **Exemplo**: `00111000000000000001100000001000`
+  - RD=6, ENDEREÇO=8 → R6 = 8
+
+### ADDI (001111)
+- **Formato**: `ADDI RD, RS, IMEDIATO`
+- **Operação**: `RD = RS + IMEDIATO`
+- **Exemplo**: `00111100001000100000000000001000`
+  - RS=1, RD=2, IMEDIATO=8 → R2 = R1 + 8
+
+### SUBI (010000)
+- **Formato**: `SUBI RD, RS, IMEDIATO`
+- **Operação**: `RD = RS - IMEDIATO`
+- **Exemplo**: `01000000001000100000000000001000`
+  - RS=1, RD=2, IMEDIATO=8 → R2 = R1 - 8
+
+### ANDI (010001)
+- **Formato**: `ANDI RD, RS, IMEDIATO`
+- **Operação**: `RD = RS & IMEDIATO`
+- **Exemplo**: `01000100001000100000000000001000`
+  - RS=1, RD=2, IMEDIATO=8 → R2 = R1 & 8
+
+### ORI (010010)
+- **Formato**: `ORI RD, RS, IMEDIATO`
+- **Operação**: `RD = RS | IMEDIATO`
+- **Exemplo**: `01001000001000100000000000001000`
+  - RS=1, RD=2, IMEDIATO=8 → R2 = R1 | 8
+
+### LI (011011)
+- **Formato**: `LI RD, IMEDIATO`
+- **Operação**: `RD = IMEDIATO`
+- **Exemplo**: `01101100000000100000000000001000`
+  - RD=2, IMEDIATO=8 → R2 = 8
+
+## INSTRUÇÕES DE BRANCH
+
+### BEQ (010011)
+- **Formato**: `BEQ RS, RT, ENDEREÇO`
+- **Operação**: `if (RS == RT) PC = ENDEREÇO`
+- **Exemplo**: `01001100001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 == R2) PC = 8
+
+### BNE (010100)
+- **Formato**: `BNE RS, RT, ENDEREÇO`
+- **Operação**: `if (RS != RT) PC = ENDEREÇO`
+- **Exemplo**: `01010000001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 != R2) PC = 8
+
+### BGT (010101)
+- **Formato**: `BGT RS, RT, ENDEREÇO`
+- **Operação**: `if (RS > RT) PC = ENDEREÇO`
+- **Exemplo**: `01010100001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 > R2) PC = 8
+
+### BGTE (010110)
+- **Formato**: `BGTE RS, RT, ENDEREÇO`
+- **Operação**: `if (RS >= RT) PC = ENDEREÇO`
+- **Exemplo**: `01011000001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 >= R2) PC = 8
+
+### BLT (010111)
+- **Formato**: `BLT RS, RT, ENDEREÇO`
+- **Operação**: `if (RS < RT) PC = ENDEREÇO`
+- **Exemplo**: `01011100001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 < R2) PC = 8
+
+### BLTE (011000)
+- **Formato**: `BLTE RS, RT, ENDEREÇO`
+- **Operação**: `if (RS <= RT) PC = ENDEREÇO`
+- **Exemplo**: `01100000001000100000000000001000`
+  - RS=1, RT=2, ENDEREÇO=8 → if (R1 <= R2) PC = 8
+
+## INSTRUÇÕES DE MEMÓRIA
+
+### LW (011001)
+- **Formato**: `LW RD, OFFSET(RS)`
+- **Operação**: `RD = MEM[RS + OFFSET]`
+- **Exemplo**: `01100100001000100000000000001000`
+  - RS=1, RD=2, OFFSET=8 → R2 = MEM[R1 + 8]
+
+### SW (011010)
+- **Formato**: `SW RT, OFFSET(RS)`
+- **Operação**: `MEM[RS + OFFSET] = RT`
+- **Exemplo**: `01101000001000100000000000001000`
+  - RS=1, RT=2, OFFSET=8 → MEM[R1 + 8] = R2
+
+## INSTRUÇÕES DE I/O
+
+### OUTPUTMEM (011111)
+- **Formato**: `OUTPUTMEM RS, ENDEREÇO`
+- **Operação**: Exibe valor da memória no display
+- **Exemplo**: `01111100001000000000000000001000`
+  - RS=1, ENDEREÇO=8 → Display = MEM[R1]
+
+### OUTPUTREG (100000)
+- **Formato**: `OUTPUTREG RS`
+- **Operação**: Exibe valor do registrador no display
+- **Exemplo**: `10000000001000000000000000000000`
+  - RS=1 → Display = R1
+
+### OUTPUT RESET (100001)
+- **Formato**: `OUTPUT RESET`
+- **Operação**: Reseta o display
+- **Exemplo**: `10000100000000000000000000000000`
+
+### INPUT (100010)
+- **Formato**: `INPUT RD`
+- **Operação**: `RD = valor dos switches`
+- **Exemplo**: `10001000000000100000000000000000`
+  - RD=2 → R2 = switches
+
+## INSTRUÇÕES DE CONTROLE
+
+### HALT (011110)
+- **Formato**: `HALT`
+- **Operação**: Para a execução do processador
+- **Exemplo**: `01111000000000000000000000000000`
+
+## ANÁLISE DO ARQUIVO test.txt
+
+| Linha | Código Binário | Instrução | Operação |
+|-------|---------------|-----------|----------|
+| 1 | `10001000000000000000000000000000` | **INPUT** R0 | R0 = switches |
+| 2 | `10000000000100000000000000000000` | **OUTPUTREG** R1 | Display = R1 |
+| 3 | `10001000000100000000000000000000` | **INPUT** R1 | R1 = switches |
+| 4 | `10000000000100000100000000000000` | **OUTPUTREG** R1 | Display = R1 |
+| 5 | `01010100000000000100000000000111` | **BGT** R0, R1, 7 | if (R0 > R1) PC = 7 |
+| 6 | `10000000000100000000000000000000` | **OUTPUTREG** R1 | Display = R1 |
+| 7 | `01110000000000000000000000001000` | **J** 8 | PC = 8 |
+| 8 | `10000000000100000100000000000000` | **OUTPUTREG** R1 | Display = R1 |
+| 9 | `01111000000000000000000000000000` | **HALT** | Para a execução |
+
+### Breakdown Detalhado
+
+**Linha 1**: `10001000000000000000000000000000`
+- **OPCODE**: `100010` (INPUT)
+- **RD**: `000000` (R0)
+- **Operação**: R0 = switches
+
+**Linha 2**: `10000000000100000000000000000000`
+- **OPCODE**: `100000` (OUTPUTREG)
+- **RD**: `000001` (R1)
+- **Operação**: Display = R1
+
+**Linha 3**: `10001000000100000000000000000000`
+- **OPCODE**: `100010` (INPUT)
+- **RD**: `000001` (R1)
+- **Operação**: R1 = switches
+
+**Linha 4**: `10000000000100000100000000000000`
+- **OPCODE**: `100000` (OUTPUTREG)
+- **RD**: `000001` (R1)
+- **RT**: `000001` (R1)
+- **Operação**: Display = R1
+
+**Linha 5**: `01010100000000000100000000000111`
+- **OPCODE**: `010101` (BGT)
+- **RD**: `000000` (R0)
+- **RT**: `000001` (R1)
+- **ENDEREÇO**: `000111` (7)
+- **Operação**: if (R0 > R1) PC = 7
+
+**Linha 6**: `10000000000100000000000000000000`
+- **OPCODE**: `100000` (OUTPUTREG)
+- **RD**: `000001` (R1)
+- **Operação**: Display = R1
+
+**Linha 7**: `01110000000000000000000000001000`
+- **OPCODE**: `011100` (J)
+- **ENDEREÇO**: `001000` (8)
+- **Operação**: PC = 8
+
+**Linha 8**: `10000000000100000100000000000000`
+- **OPCODE**: `100000` (OUTPUTREG)
+- **RD**: `000001` (R1)
+- **RT**: `000001` (R1)
+- **Operação**: Display = R1
+
+**Linha 9**: `01111000000000000000000000000000`
+- **OPCODE**: `011110` (HALT)
+- **Operação**: Para a execução
+
+## OBSERVAÇÕES SOBRE O BRANCH
+
+### Limitações Atuais
+1. O endereço de branch é limitado a 6 bits (0-63)
+2. Não usa offset relativo ao PC atual
+3. Usa endereço absoluto codificado na instrução
+
+### Como o Branch Funciona
+1. ULA compara os registradores (RS e RT)
+2. Se condição for verdadeira, PC = endereço[5:0]
+3. Se falsa, PC = PC + 1
+
+### Exemplo de Branch no test.txt
+- **Linha 5**: `BGT R0, R1, 7`
+- Se R0 > R1, pula para endereço 7
+- Senão, continua para próxima instrução
